@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+
+    	class SpanList extends React.Component{
+    		render(){
+    			// 这个必须得加括号
+    			return (
+			<ol>
+			{
+				React.Children.map(this.props.children, function(child){
+					return <li>get {child}</li>
+				})
+			}
+    			</ol>
+    			);
+			}
+    		}
+
+      ReactDOM.render(
+      	<SpanList>
+      		<span>span1</span>
+      		<span>span2</span>
+      		<span>span3</span>
+      	</SpanList>,
+
+        document.getElementById('example')
+        );
+    </script>
+  </body>
+</html>
