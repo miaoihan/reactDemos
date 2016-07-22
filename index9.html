@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">   
+      class Input extends React.Component {   
+        constructor(props) {
+          super(props)
+          this.state = {
+            text : 'hello'
+          }
+        }
+
+        handleChange(eve){
+          console.log(eve)
+          this.setState({text : eve.target.text})
+        }
+      
+        render() {
+          let text = this.state.text
+          return (
+          	<div>
+	            <input type="text" 
+	            		   value={text}
+	            		   onchange={eve=>{this.handleChange}} />
+	          <p>{text}</p>
+          	</div>
+          	)
+        }
+      }
+
+      ReactDOM.render(
+        <Input />,
+        example
+        )
+    </script>
+  </body>
+</html>

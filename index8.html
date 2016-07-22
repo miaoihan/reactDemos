@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">   
+      class LikeButton extends React.Component {   
+        constructor(props) {
+          super(props)
+          this.state = {
+            liked : false
+          }
+        }
+
+        handleClck(eve){
+          console.log(eve)
+          this.setState({liked : !this.state.liked})
+        }
+      
+        render() {
+          let text = this.state.liked ? 'like' : 'dislike'
+          return (
+            <div onClick={eve=>{this.handleClck(eve)}}>You {text} it, Click me</div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+        <LikeButton />,
+        example
+        )
+    </script>
+  </body>
+</html>
