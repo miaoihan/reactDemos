@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">   
+      class Demo extends React.Component {   
+      	constructor(props) {
+  	    	super(props);
+  	    	this.state= {
+  	    		inputValue:''
+      		}
+ 	      }
+        handleInput(e){
+          // this.setState({inputValue:this.refs.myInput.value})
+          this.setState({inputValue:e.target.value})
+        }        
+
+        render(){
+          return (
+            <div>
+              <p><input type="text" 
+                        ref="myInput" 
+                        onChange={e=>{this.handleInput(e)}} 
+                        placeholder="please input your name"/></p>             
+              {console.log(2222)}
+              <p>{this.state.inputValue+1}</p>
+            </div>
+          )
+        } 
+      }
+ 
+  ReactDOM.render(
+    <Demo/>,
+    document.getElementById('example')
+  )
+    </script>
+  </body>
+</html>

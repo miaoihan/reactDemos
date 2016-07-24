@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">   
+      class Flush extends React.Component {
+
+        render() {
+          return (
+            <div >
+              <p><input type="text" placeholder="please input your name"/></p>
+              <p>Now is {this.props.date.toTimeString()}</p>
+            </div>
+          )
+        }
+      }
+
+      setInterval(function() {
+  ReactDOM.render(
+    <Flush date={new Date()} />,
+    document.getElementById('example')
+  );
+}, 500);
+    </script>
+  </body>
+</html>

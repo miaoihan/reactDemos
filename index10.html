@@ -9,29 +9,34 @@
   <body>
     <div id="example"></div>
     <script type="text/babel">   
-      class LikeButton extends React.Component {   
+      class Loop extends React.Component {   
         constructor(props) {
           super(props)
           this.state = {
-            liked : false
+            opacity : 1.0
           }
         }
 
-        handleClck(eve){
-          console.log(eve)
-          this.setState({liked : !this.state.liked})
+        componentDidMount() {
+            this.timer = setInterval(function(){
+            	let opacity = this.state.opacity
+            	opacity -= .05
+            	if (opacity < 0.1) {opacity = 1.0}
+            	this.setState({opacity : opacity})
+            }.bind(this), 100)  
         }
       
-        render() {
-          let text = this.state.liked ? 'like' : 'dislike'
+        render() {    
           return (
-            <div onClick={eve=>{this.handleClck(eve)}}>You {text} it, Click me</div>
+            <div style={{opacity : this.state.opacity}}>
+            	nihaoa!
+            </div>
           )
         }
       }
 
       ReactDOM.render(
-        <LikeButton />,
+        <Loop />,
         example
         )
     </script>

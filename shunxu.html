@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <style>
+    	.div1{
+    		
+    	}
+    </style>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+    	var style = {
+    		border:"solid 1px red"
+    	}
+      class Demo extends React.Component {      
+        constructor(props) {
+        	console.log('props 1')
+          super(props);
+          this.state = {
+          	value : 6
+          }
+          console.log('state 2')
+        }
+        //**** has defined by constructor ****
+        // getDefaultProps() {
+        // 	console.log('getDefaultProps 3')  
+        //     return {
+                  
+        //     };
+        // }
+        // getInitialState() {
+        // 	console.log('getInitialState 3')  
+        //     return {
+                  
+        //     };
+        // }
+        componentWillMount() {
+          console.log('componentWillMount 3')    
+        }
+        componentDidMount() {
+        	console.log('componentDidMount 4')
+        }
+        render() {
+        	console.log('render 5')
+          return (
+            <div>hello</div>
+          )
+        }
+      }
+
+      ReactDOM.render(
+      	<div style={style}><Demo /></div>,
+      	example
+      	)   
+      
+    </script>
+  </body>
+</html>
