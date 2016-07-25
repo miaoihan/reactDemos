@@ -19,7 +19,7 @@
 
         handleChange(eve){
           console.log(eve)
-          this.setState({text : eve.target.text})
+          this.setState({text : eve.target.value})
         }
       
         render() {
@@ -28,7 +28,7 @@
           	<div>
 	            <input type="text" 
 	            		   value={text}
-	            		   onchange={eve=>{this.handleChange}} />
+	            		   onChange={eve=>{this.handleChange(eve)}} />
 	          <p>{text}</p>
           	</div>
           	)
